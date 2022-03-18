@@ -1,128 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Task Service</title>
-    <link rel="stylesheet" href="./style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+
+  <body onload="fetchTasks()">
     <nav>
-        <div class="logo">
-
-
-        Task Sevice
-        </div>
-
-
+      <div class="logo">Task Service</div>
     </nav>
     <div class="container">
+      <form id="inputForm"> 
+        <div class="form-control">
+          <label for="name"> Name </label>
+          <input
+            type="text"
+            id="title"
+            placeholder="Enter Name"
+            autocomplete="off"
+          />
+        </div>
+        <div class="form-control">
+          <label for="description"> Description </label>
+          <input
+            type="text"
+            id="description"
+            placeholder="Enter Description"
+            autocomplete="off"
+          />
+        </div>
+        <div class="container-one">
+          <h2 id="select-status">Select Status</h2>
 
-        <form>
-
-            <div class="form-control">
-                <label for="name">
-
-Name
-
-                </label>
-                <input type="text"id="title" placeholder="Enter Name" autocomplete="off">
-            </div>
-            <div class="form-control">
-                <label for="desc">
-
-Description
-
-                </label>
-                <input type="text"id="desc" placeholder="Enter Description"  autocomplete="off">
-            </div>
-            <div class="containerr">
-                <h2>select Options</h2>
-            
-            <div class="select-box">
-               
-                <div class="options-container " >
-                    <div class="option">
-                        <input type="radio"class="radio" id="automobles" name="catagory" autocomplete="off" disabled/>
-                        <label for="automobiles"> In Progress</label>
-                    </div>
-                    <div class="option">
-                        <input type="radio"class="radio" id="Film & Animation" name="catagory" autocomplete="off"/>
-                        <label for="automobiles">Done</label>
-                    </div>
-                   <!-- <div class="option">
-                        <input type="radio"class="radio" id="Science & Technology" name="catagory" autocomplete="off"/>
-                        <label for="automobiles">Done</label>
+          <div class="select-box">
+            <div class="options-container">
+              <div class="option">
+                <input
+                  type="radio"
+                  class="input-class"
+                  id="inprogress-input"
+                  name="input-field"
+                  autocomplete="off"
+                  disabled
+                />
+                <label for="inprogress"> In Progress</label>
+              </div>
+              <div class="option">
+                <input
+                  type="radio"
+                  class="input-class"
+                  id="done-input"
+                  name="input-field"
+                  autocomplete="off"
+                />
+                <label for="done">Done</label>
+              </div>
+              <div class="option">
+                <input
+                  type="radio"
+                  class="input-class"
+                  id="todo-input"
+                  name="input-field"
+                  autocomplete="off"
+                  disabled
+                />
+                <label for="todo"> To Do</label>
+              </div>
+              <!-- <div class="option">
+                        <input type="radio"class="input-class" id="done-input" name="input-field" autocomplete="off"/>
+                        <label for="done-label">Done</label>
                     </div>-->
-                    
-                </div>
-                <div class="selected">
-                    To Do
-                </div>
             </div>
-        
+            <div class="selected">select status</div>
+          </div>
+        </div>
 
-                
-                
-            </div>
-        <!--    <div class="form-control">
-            <label for="status">
-
-Status
-
-            </label>
-            <select id="select">
-                <option value="" disabled selected> Status </option>
-                <option value="" class="option">Possible Values</option>
-                <option value="" class="option">To Do</option>
-                <option value="" class="option">In Progress</option>
-                <option value="" class="option">Done</option>
-            </select>
-        </div>-->
-
-<button class="submit">
-    +
-</button>
-        </form>
+        <button type="submit" class="submit">+</button>
+      </form>
     </div>
 
-   <!-- <div class="notes">
-        
-    </div>-->
     <section id="columns">
-        <div class="column dropzone">
-            <h3 class="column-title">To Do</h3>
-            <ul class="tasks" id="tasks-added">
-                <!-- <li class="task fill" draggable="true">
+      <div class="column dropzone">
+        <h3 class="column-title">To Do</h3>
+        <ul id ="To Do"class="tasks" id="tasks-added">
+          <!-- <li class="task fill" draggable="true">
                     <div class="task-content">Create repository template with HTML & CSS</div>
                     <div class="trash">X</div>
                 </li> -->
-            </ul>
-        </div>
-        <div class="column dropzone">
-            <h3 class="column-title">In Progress</h3>
-            <ul class="tasks1" >
-                <!-- <li class="task fill" draggable="true">
+        </ul>
+      </div>
+      <div class="column dropzone">
+        <h3 class="column-title">In Progress</h3>
+        <ul id ="In Progress" class="tasks1">
+          <!-- <li class="task fill" draggable="true">
                     <div class="task-content">Create repository template with HTML & CSS</div>
                     <div class="trash">X</div>
                 </li> -->
-            </ul>
-        </div>
-        <div class="column dropzone">
-            <h3 class="column-title">Done</h3>
-            <ul class="tasks2" >
-                <!-- <li class="task fill" draggable="true">
+        </ul>
+      </div>
+      <div class="column dropzone">
+        <h3 class="column-title">Done</h3>
+        <ul id="Done" class="tasks2">
+          <!-- <li class="task fill" draggable="true">
                     <div class="task-content">Create repository template with HTML & CSS</div>
                     <div class="trash">X</div>
                 </li> -->
-            </ul>
-        </div>
-        
+        </ul>
+      </div>
     </section>
 
-
-   <script src="./index.js"></script>
-</body>
+    <script src="./index.js"></script>
+  </body>
 </html>
--->
